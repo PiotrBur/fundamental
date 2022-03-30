@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 .hoverwell:hover {
   background-color: #485563;
@@ -25,12 +25,15 @@ button {
 .toast-success {
   background-color: #51a351;
 }
+
 .toast-error {
   background-color: #bd362f;
 }
+
 .toast-info {
   background-color: #2f96b4;
 }
+
 .toast-warning {
   background-color: #f89406;
 }
