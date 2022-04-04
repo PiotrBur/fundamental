@@ -1,27 +1,21 @@
 import {Component } from '@angular/core'
 import { Router } from '@angular/router'
+import { EventService } from './event.service'
 
 @Component ({
-    template: `<h1> New Event </h1>
-    <hr>
-    <div class="col-md-6">
-        
-        <br/>
-    
-
-    <button type="submit" class="btn btn-primary">Save </button>
-    <button type="button" class="btn btn-default" (click)="cancel()">cancel
-</button>
-</div>
-
-`
+    templateUrl :'shared/create-event.component.html'
 })
-export class CreateEventComponent {
+export class CreateEventComponent {  
+    newEvent: any 
     isDirty:boolean = true
-constructor(private router: Router){
+    //eventService: any
+constructor(private router: Router, private eventService:EventService){
 
 }
-
+    saveEvent() {
+        this.eventService.saveEvent()
+        
+    }
     cancel(){
         this.router.navigate(['/events'])
 

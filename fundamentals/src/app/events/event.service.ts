@@ -4,6 +4,9 @@ import { IEvent } from './shared/event.model';
 
 @Injectable()
 export class EventService {
+    saveEvent() {
+        throw new Error('Method not implemented.');
+    }
     getEvents():Observable <IEvent[]> {
       let subject = new Subject <IEvent[]>()
       setTimeout(() => {subject.next(EVENTS); subject.complete(); }, 100)

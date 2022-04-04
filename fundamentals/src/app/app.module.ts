@@ -16,6 +16,9 @@ import { Error404Component } from './errors/404.component';
 import { UserModule } from './nav/user/user.module';
 import { AuthService } from './nav/user/auth.service';
 //import { EventModel } from './events/shared/event.model'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -26,12 +29,15 @@ import { AuthService } from './nav/user/auth.service';
     EventThumbnailComponents,
     NavBarComponent,
     EventDetailsComponents,
-    CreateEventComponent,
+    //CreateEventComponent,
     Error404Component,
+    
   
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
