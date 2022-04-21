@@ -8,7 +8,7 @@ import { EventDetailsComponents } from './events/event-detail/event-details.comp
 import { CreateEventComponent } from './events/create-events.component'
 import { EventRouteActivator } from './events/event-detail/event-route-activator.service'
 import { AppComponent } from './app.component';
-import { EventListResolver }from './events/events-list-resolver.service'
+import { EventListResolver } from './events/events-list-resolver.service'
 import { NavBarComponent } from './nav/navbar.components';
 import { appRoutes } from './router';
 import { RouterModule } from '@angular/router';
@@ -17,7 +17,9 @@ import { UserModule } from './nav/user/user.module';
 import { AuthService } from './nav/user/auth.service';
 //import { EventModel } from './events/shared/event.model'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CreateSessionComponent } from './events/event-detail/create-session-component';
+import { SessionListComponent,  } from './events/event-detail/session-list.component';
+import { DurationPipe } from './events/shared/duration.pipe';
 
 
 
@@ -29,10 +31,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventThumbnailComponents,
     NavBarComponent,
     EventDetailsComponents,
-    //CreateEventComponent,
+    CreateEventComponent,
     Error404Component,
-    
-  
+    CreateSessionComponent,
+    SessionListComponent, 
+    DurationPipe,
+
+
   ],
   imports: [
     BrowserModule,
@@ -42,14 +47,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule.forRoot(appRoutes)
   ],
   providers: [EventService, EventRouteActivator, EventListResolver, AuthService,
-  { provide: 'canDeactiveCreateEvent', useValue: checkDirtyState}
+    { provide: 'canDeactiveCreateEvent', useValue: checkDirtyState }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export function checkDirtyState(component:CreateEventComponent){
-  if(component.isDirty)
-  return window.confirm('You have not save this event')
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty)
+    return window.confirm('You have not save this event')
   return true
 }

@@ -1,22 +1,34 @@
-import {Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
+import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router'
 import { EventService } from './event.service'
-
-@Component ({
-    templateUrl :'shared/create-event.component.html'
-})
-export class CreateEventComponent {  
-    newEvent: any 
-    isDirty:boolean = true
-    //eventService: any
-constructor(private router: Router, private eventService:EventService){
-
+enum FormFields {
+    NAME = 'dupa'
 }
+@Component({
+    templateUrl: 'shared/create-event.component.html'
+})
+export class CreateEventComponent {
+    @ViewChild('newEventForm') newEventForm: any;
+    FormFields: typeof FormFields = FormFields;
+    newEvent: any
+    isDirty: boolean = true
+    //eventService: any
+    constructor(private router: Router, private eventService: EventService) {
+
+    }
+
+    ngOnInit() {
+    }
+    ngAfterViewInit() {
+        console.log(this.newEventForm)
+
+    }
     saveEvent() {
         this.eventService.saveEvent()
-        
+
     }
-    cancel(){
+    cancel() {
         this.router.navigate(['/events'])
 
     }

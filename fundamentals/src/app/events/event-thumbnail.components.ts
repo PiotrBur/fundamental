@@ -7,10 +7,10 @@ import { IEvent } from './shared/event.model'
     template: `
     <div>
     <a [routerLink]="['/events', event.id]" class="well hoverwell thumbnail"></a>
-     <h2>{{event.name}}</h2>
-     <div>Date: {{event.date}}</div>
+     <h2>{{event.name | uppercase}}</h2>
+     <div>Date: {{event.date | date:'short'}}</div>
      <div>Time: {{event.time}}</div>
-     <div>Price: \$ {{event.price}}</div>
+     <div>Price: {{event.price | currency:'USD'}}</div>
 <div>
      <span>Location: {{event.location}}</span>
      <span>&nbsp;</span>
