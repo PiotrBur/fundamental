@@ -20,8 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-detail/create-session-component';
 import { SessionListComponent,  } from './events/event-detail/session-list.component';
 import { DurationPipe } from './events/shared/duration.pipe';
-
-
+import { HttpClientModule } from '@angular/common/http'
 
 
 @NgModule({
@@ -36,6 +35,7 @@ import { DurationPipe } from './events/shared/duration.pipe';
     CreateSessionComponent,
     SessionListComponent, 
     DurationPipe,
+    
 
 
   ],

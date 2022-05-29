@@ -21,7 +21,9 @@
     "ngf-bootstrap": "file:node_modules/ngf-bootstrap",
     "ngx-toastr": "^14.2.2",
     "rxjs": "~7.5.0",
+    "stream-browserify": "^3.0.0",
     "tslib": "^2.3.0",
+    "webpack": "^5.72.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

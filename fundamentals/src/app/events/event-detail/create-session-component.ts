@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators  } from '@angular/forms'
-import { EventEmitter } from 'stream'
+import { EventEmitter } from '@angular/core'
 import { ISession } from '../shared/event.model'
 
 @Component ({

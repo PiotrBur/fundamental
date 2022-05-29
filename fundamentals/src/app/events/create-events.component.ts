@@ -3,7 +3,10 @@ import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router'
 import { EventService } from './event.service'
 enum FormFields {
-    NAME = 'dupa'
+    NAME = 'name',
+    DATE = 'date',
+    TIME = 'time',
+    PRICE = 'price'
 }
 @Component({
     templateUrl: 'shared/create-event.component.html'

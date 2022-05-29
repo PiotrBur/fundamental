@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service'
 
 @Component({
@@ -8,25 +9,25 @@ import { AuthService } from './auth.service'
 export class ProfileComponent {
   readonly profileForm: FormGroup; // readonly sluzy do tego zebys sobie przypadkiem nie nadpisał tego pola, jak cos ustawiasz tylko w
   // konstruktorze to warto to dodać
-  router: any
 
-  constructor(private readonly authService: AuthService) { // serwisy zawsze z readolny bo tego raczej nigdy wiecej nie nadpiszesz a tak
+  constructor(private readonly authService: AuthService, private readonly router: Router) { // serwisy zawsze z readolny bo tego raczej nigdy wiecej nie nadpiszesz a tak
     // przypadkiem tego nie zrobisz bo blad dostaniesz
     this.profileForm = new FormGroup({
       // todo firstName i lastName wrzucić do enuma i go używaj tu i w html bo jak bedziesz chcial pozniej zmienic nazwe to bedziesz
       //  musial w kazdym miejscu oddzielnie
-      ['firstName']: new FormControl(this.authService.currentUser?.firstName, Validators.required),
-      ['lastName']: new FormControl(this.authService.currentUser?.lastName, Validators.required)
+      'firstName': new FormControl(this.authService.currentUser?.firstName, Validators.required),
+      'lastName': new FormControl(this.authService.currentUser?.lastName, Validators.required)
     })
     // jak przypiszesz nowy FormGroup w konstruktorze a nie w ngOnInit to nie będzie krzyczał że może być undefined bo konstruktor
     // uruchamia się szybciej niz ngOnInit i przed wyrenderowaniem htmla, poczytaj sobie o cyklu życia komponentu
   }
 
-// nie musisz tu przekazywac parametru bo masz i tak dostep do niego w tym miejscu, ale to nie jest jakis blad a raczej wybor jak chcesz
-// to zapisac
+  // nie musisz tu przekazywac parametru bo masz i tak dostep do niego w tym miejscu, ale to nie jest jakis blad a raczej wybor jak chcesz
+  // to zapisac
   saveProfile(): void {
     // todo warto ten typ to oddzielnego interface dac
     const formValues: { firstName: string, lastName: string } = this.profileForm.getRawValue() as { firstName: string, lastName: string }; // warto korzystac z tego bo wtedy
+    console.log(formValues)
     // dostaniesz tez wartosci z disabled inputow a
     // czasem sa inputy tylko do odczytu co dane z innego miejsca biora
     // to as { firstName: string, lastName: string } mowi ze ma to traktowac jako taki typ, akurat getRawValue zwraca any bo nigdy nie

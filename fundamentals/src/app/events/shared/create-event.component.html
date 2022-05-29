@@ -7,20 +7,22 @@
       <em *ngIf="newEventForm.controls[FormFields.NAME]?.invalid && (newEventForm.controls['name']?.touched)">Required</em>
       <input  (ngModel)="newEvent.name" [name]="FormFields.NAME" required id="name" type="text" class="form-control" placeholder="Name of your event..." />
     </div>
-    <!-- <div class="form-group">
-      <label for="eventDate">Event Date:</label>
-      <em *ngIf="newEventForm.controls.date?.invalid && (newEventForm.controls.date?.touched)">Required</em>
-      <input (ngModel)="newEvent.date" name="date" required id="eventDate" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..." />
-    </div>
     <div class="form-group">
+      <label for="eventDate">Event Date:</label>
+      <em *ngIf="newEventForm.controls[FormFields.DATE]?.invalid && (newEventForm.controls['date']?.touched)">Required</em>
+      <input  (ngModel)="newEvent.date" [name]="FormFields.DATE" required id="date" type="text" class="form-control" placeholder="format (mm/dd/yyyy)..." />
+
+    </div>
+   <div class="form-group">
       <label for="eventTime">Event Time:</label>
-      <em *ngIf="newEventForm.controls.time?.invalid && (newEventForm.controls.time?.touched)">Required</em>
-      <input (ngModel)="newEvent.time" name="time" required id="eventTime" type="text" class="form-control" placeholder="start and end time..." />
+      <em *ngIf="newEventForm.controls[FormFields.TIME]?.invalid && (newEventForm.controls['time']?.touched)">Required</em>
+      <input  (ngModel)="newEvent.time" [name]="FormFields.TIME" required id="time" type="text" class="form-control" placeholder="start and end time..." />
+
     </div>
     <div class="form-group" >
       <label for="eventPrice">Event Price:</label>
-      <em *ngIf="newEventForm.controls.price?.invalid && (newEventForm.controls.price?.touched)">Required</em>
-      <input (ngModel)="newEvent.price" name="price" required id="eventPrice" type="text" type="number" class="form-control" placeholder="event price..." />
+    <em *ngIf="newEventForm.controls[FormFields.PRICE]?.invalid && (newEventForm.controls['price']?.touched)">Required</em>
+      <input  (ngModel)="newEvent.price" [name]="FormFields.PRICE" required id="price" type="text" class="form-control" placeholder="event price..." />
     </div>
     
     <div ngModuleGroup="location">
@@ -42,7 +44,7 @@
       <label for="onlineUrl">Online Url:</label>
       <input (ngModel)="newEvent.onlineUrl" name="onlineUrl" id="onlineUrl" type="text" class="form-control" placeholder="Online Url..." />
     </div>
-    <div class="form-group">
+   <!----<div class="form-group">
       <label for="imageUrl">Image:</label>
       <em *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched && newEventForm.controls.imageUrl?.errors.required">Required</em>
       <em *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched  && newEventForm.controls.imageUrl?.errors.pattern">Must be a png or jpg url</em>
